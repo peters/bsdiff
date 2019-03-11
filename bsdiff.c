@@ -321,7 +321,7 @@ static int bsdiff_internal(const struct bsdiff_request req)
 	return 0;
 }
 
-int bsdiff(const uint8_t* old, int64_t oldsize, const uint8_t* new, int64_t newsize, struct bsdiff_stream* stream)
+int bsdiff(const uint8_t* old_data, int64_t oldsize, const uint8_t* new_data, int64_t newsize, struct bsdiff_stream* stream)
 {
 	int result;
 	struct bsdiff_request req;
@@ -335,9 +335,9 @@ int bsdiff(const uint8_t* old, int64_t oldsize, const uint8_t* new, int64_t news
 		return -1;
 	}
 
-	req.old = old;
+	req.old = old_data;
 	req.oldsize = oldsize;
-	req.new = new;
+	req.new = new_data;
 	req.newsize = newsize;
 	req.stream = stream;
 
